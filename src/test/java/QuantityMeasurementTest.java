@@ -27,4 +27,12 @@ public class QuantityMeasurementTest {
         boolean result = firstFeet.equals(firstFeet);
         Assert.assertEquals(true, result);
     }
+
+    @Test
+    public void given0FeetAnd0feet_WhenType_ShouldReturnTrue() {
+        QuantityMeasurement firstFeet = new QuantityMeasurement(0.0);
+        QuantityMeasurement secondFeet = new QuantityMeasurement(0.0);
+        boolean result = firstFeet.getClass().equals(secondFeet.getClass());
+        Assert.assertEquals(true, result);
+    }
 }
