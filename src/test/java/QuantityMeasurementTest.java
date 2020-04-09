@@ -31,8 +31,8 @@ public class QuantityMeasurementTest {
     @Test
     public void given0FeetAnd0feet_WhenType_ShouldReturnTrue() {
         QuantityMeasurement firstFeet = new QuantityMeasurement(0.0);
-        QuantityMeasurement secondFeet = new QuantityMeasurement(0.0);
-        boolean result = firstFeet.getClass().equals(secondFeet.getClass());
+        QuantityMeasurement secondFeet = new QuantityMeasurement(1.0);
+        boolean result = firstFeet.equals(secondFeet);
         Assert.assertEquals(true, result);
     }
 }
