@@ -18,4 +18,13 @@ public class QuantityMeasurementTest {
         boolean result = firstFeet.equals(null);
         Assert.assertEquals(false, result);
     }
+
+
+    @Test
+    public void given0FeetAnd0feet_WhenReference_ShouldReturnTrue() {
+        QuantityMeasurement firstFeet = new QuantityMeasurement(0.0);
+        QuantityMeasurement secondFeet = new QuantityMeasurement(0.0);
+        boolean result = firstFeet.equals(firstFeet);
+        Assert.assertEquals(true, result);
+    }
 }
