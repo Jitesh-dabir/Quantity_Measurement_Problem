@@ -9,16 +9,14 @@ public class QuantityMeasurement {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        QuantityMeasurement that = (QuantityMeasurement) o;
-        return Double.compare(that.feet, feet) == 0;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(feet);
+    public boolean equals(Object object) {
+        if (object == null)
+            return false;
+        if (object == this)
+            return true;
+        if (object.getClass() == this.getClass())
+            return true;
+        return super.equals(object);
     }
 
     public static void main(String[] args) {
