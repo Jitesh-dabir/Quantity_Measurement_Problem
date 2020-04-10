@@ -103,4 +103,13 @@ public class QuantityMeasurementTest {
         double secondInch = quantityMeasurementInch.getMeasurementValue(0.0);
         Assert.assertEquals(firstInch, secondInch, 0.0);
     }
+
+    @Test
+    public void given1FeetAnd1Inch_WhenCheckComparison_ShouldReturnFalse() {
+        QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.FEET);
+        double firstInch = quantityMeasurementFeet.getMeasurementValue(1.0);
+        QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.INCH);
+        double secondInch = quantityMeasurementInch.getMeasurementValue(1.0);
+        Assert.assertNotEquals(firstInch, secondInch, 0.0);
+    }
 }
