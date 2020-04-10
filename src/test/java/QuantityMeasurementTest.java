@@ -227,7 +227,7 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurementInch1 = new QuantityMeasurement(Lengths.INCH);
         double feet = quantityMeasurementInch1.getMeasurementValue(unitInch);
         double additionOfUnit = inch + feet;
-        Assert.assertEquals(expectedUnit, additionOfUnit,0.0);
+        Assert.assertEquals(expectedUnit, additionOfUnit, 0.0);
     }
 
     @Test
@@ -238,7 +238,7 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurementInch1 = new QuantityMeasurement(Lengths.INCH);
         double feet = quantityMeasurementInch1.getMeasurementValue(unitInch);
         double additionOfUnit = inch + feet;
-        Assert.assertEquals(expectedUnit, additionOfUnit,0.0);
+        Assert.assertEquals(expectedUnit, additionOfUnit, 0.0);
     }
 
     @Test
@@ -249,7 +249,7 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurementInch1 = new QuantityMeasurement(Lengths.FEET);
         double inch1 = quantityMeasurementInch1.getMeasurementValue(unitInch);
         double additionOfUnit = inch + inch1;
-        Assert.assertEquals(expectedUnit, additionOfUnit,0.0);
+        Assert.assertEquals(expectedUnit, additionOfUnit, 0.0);
     }
 
     @Test
@@ -260,7 +260,7 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurementInch1 = new QuantityMeasurement(Lengths.CM_TO_INCH);
         double inch1 = quantityMeasurementInch1.getMeasurementValue(unitInCm);
         double additionOfUnit = inch + inch1;
-        Assert.assertEquals((int)expectedUnit, (int)additionOfUnit,0.0);
+        Assert.assertEquals((int) expectedUnit, (int) additionOfUnit, 0.0);
     }
 
     @Test
@@ -270,14 +270,22 @@ public class QuantityMeasurementTest {
         double gallon = quantityMeasurementGallon.getMeasurementValue(unitInGallon);
         QuantityMeasurement quantityMeasurementInGallon = new QuantityMeasurement(Lengths.GALLON_TO_LITRES);
         double gallonValue = quantityMeasurementInGallon.getMeasurementValue(unitGallon);
-        Assert.assertEquals(gallon,gallonValue,0.0);
+        Assert.assertEquals(gallon, gallonValue, 0.0);
     }
 
     @Test
     public void givenGallon_WhenCheckComparisonToLitre_ShouldReturnResultTrue() {
-        double unitInGallon = 1.0, expectedUnit = 3.78;
+        double unitInGallon = 1.0, expectedUnitInLitre = 3.78;
         QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.GALLON_TO_LITRES);
         double gallonValue = quantityMeasurementInLitre.getMeasurementValue(unitInGallon);
-        Assert.assertEquals(expectedUnit,gallonValue,0.0);
+        Assert.assertEquals(expectedUnitInLitre, gallonValue, 0.0);
+    }
+
+    @Test
+    public void givenLitre_WhenCheckComparisonTogallon_ShouldReturnResultTrue() {
+        double unitInLitre = 3.78, expectedUnitInGallon = 1.0;
+        QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.LITRES_TO_GALLON);
+        double gallonValue = quantityMeasurementInLitre.getMeasurementValue(unitInLitre);
+        Assert.assertEquals(expectedUnitInGallon, gallonValue, 0.0);
     }
 }
