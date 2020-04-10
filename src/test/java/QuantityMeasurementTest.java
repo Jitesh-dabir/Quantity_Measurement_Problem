@@ -42,6 +42,14 @@ public class QuantityMeasurementTest {
     }
 
     @Test
+    public void givenSameValueToNBothFeet_WhenBothEqual_ShouldReturnTrue() {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(Lengths.FEET);
+        double firstFeet = quantityMeasurement.getMeasurementValue(50);
+        double secondFeet = quantityMeasurement.getMeasurementValue(50);
+        Assert.assertEquals(firstFeet, secondFeet, 0.0);
+    }
+
+    @Test
     public void given0InchAnd0Inch_WhenEqual_ShouldReturnTrue() {
         QuantityMeasurement quantityMeasurement = new QuantityMeasurement(Lengths.INCH);
         double firstInch = quantityMeasurement.getMeasurementValue(0.0);
