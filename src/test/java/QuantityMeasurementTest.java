@@ -304,4 +304,13 @@ public class QuantityMeasurementTest {
         double literValue = quantityMeasurementInLitre.getMeasurementValue(unitInMillilitre);
         Assert.assertEquals(unitInLiter, literValue, 0.0);
     }
+
+    @Test
+    public void givenGallonAndLiters_WhenAdditionOfTwoVolumes_ShouldReturnResultInLiters() {
+        double unitInGallon = 1.0, unitInLiter = 3.78, expectedInLiters = 7.56;
+        QuantityMeasurement quantityMeasurementLitre = new QuantityMeasurement(Lengths.GALLON_TO_LITRES);
+        double literValue = quantityMeasurementLitre.getMeasurementValue(unitInGallon);
+        double resultInLiters = literValue + unitInLiter;
+        Assert.assertEquals(expectedInLiters, resultInLiters, 0.0);
+    }
 }
