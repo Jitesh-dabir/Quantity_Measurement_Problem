@@ -277,23 +277,31 @@ public class QuantityMeasurementTest {
     public void givenGallon_WhenCheckComparisonToLitre_ShouldReturnResultTrue() {
         double unitInGallon = 1.0, expectedUnitInLitre = 3.78;
         QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.GALLON_TO_LITRES);
-        double gallonValue = quantityMeasurementInLitre.getMeasurementValue(unitInGallon);
-        Assert.assertEquals(expectedUnitInLitre, gallonValue, 0.0);
+        double literValue = quantityMeasurementInLitre.getMeasurementValue(unitInGallon);
+        Assert.assertEquals(expectedUnitInLitre, literValue, 0.0);
     }
 
     @Test
-    public void givenLitre_WhenCheckComparisonTogallon_ShouldReturnResultTrue() {
-        double unitInLitre = 3.78, expectedUnitInGallon = 1.0;
+    public void givenLiter_WhenCheckComparisonToGallon_ShouldReturnResultTrue() {
+        double unitInLiter = 3.78, expectedUnitInGallon = 1.0;
         QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.LITRES_TO_GALLON);
-        double gallonValue = quantityMeasurementInLitre.getMeasurementValue(unitInLitre);
+        double gallonValue = quantityMeasurementInLitre.getMeasurementValue(unitInLiter);
         Assert.assertEquals(expectedUnitInGallon, gallonValue, 0.0);
     }
 
     @Test
-    public void givenLitre_WhenCheckComparisonToMilliliter_ShouldReturnResultTrue() {
+    public void givenLiter_WhenCheckComparisonToMilliliter_ShouldReturnResultTrue() {
         double unitInLitre = 1.0, unitInMilliliter = 1000.0;
         QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.LITER_TO_MILLILITER);
-        double gallonValue = quantityMeasurementInLitre.getMeasurementValue(unitInLitre);
-        Assert.assertEquals(unitInMilliliter, gallonValue, 0.0);
+        double milliliterValue = quantityMeasurementInLitre.getMeasurementValue(unitInLitre);
+        Assert.assertEquals(unitInMilliliter, milliliterValue, 0.0);
+    }
+
+    @Test
+    public void givenMilliliter_WhenCheckComparisonToLiter_ShouldReturnResultTrue() {
+        double unitInMillilitre = 1000.0, unitInLiter = 1.0;
+        QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.MILLILITER_TO_LITER);
+        double literValue = quantityMeasurementInLitre.getMeasurementValue(unitInMillilitre);
+        Assert.assertEquals(unitInLiter, literValue, 0.0);
     }
 }
