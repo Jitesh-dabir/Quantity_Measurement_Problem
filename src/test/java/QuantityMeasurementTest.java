@@ -5,34 +5,41 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given0FeetAnd0feet_WhenEqual_ShouldReturnTrue() {
-        QuantityMeasurement firstFeet = new QuantityMeasurement(0.0);
-        QuantityMeasurement secondFeet = new QuantityMeasurement(0.0);
-        boolean result = firstFeet.equals(secondFeet);
-        Assert.assertEquals(true, result);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(Lengths.FEET);
+        double firstFeet = quantityMeasurement.getMeasurementValue(0.0);
+        double secondFeet = quantityMeasurement.getMeasurementValue(0.0);
+        Assert.assertEquals(firstFeet, secondFeet, 0.0);
     }
 
     @Test
     public void given0FeetAnd0feet_WhenNullCheck_ShouldReturnResult() {
-        QuantityMeasurement firstFeet = new QuantityMeasurement(0.0);
-        QuantityMeasurement secondFeet = new QuantityMeasurement(0.0);
-        boolean result = firstFeet.equals(null);
-        Assert.assertEquals(false, result);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(Lengths.FEET);
+        double firstFeet = quantityMeasurement.getMeasurementValue(0.0);
+        double secondFeet = quantityMeasurement.getMeasurementValue(0.0);
+        boolean equal = quantityMeasurement.equals(null);
+        Assert.assertEquals(false, equal);
     }
-
 
     @Test
     public void given0FeetAnd0feet_WhenReference_ShouldReturnTrue() {
-        QuantityMeasurement firstFeet = new QuantityMeasurement(0.0);
-        QuantityMeasurement secondFeet = new QuantityMeasurement(0.0);
-        boolean result = firstFeet.equals(firstFeet);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(Lengths.FEET);
+        boolean result = quantityMeasurement.equals(quantityMeasurement);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void given0FeetAnd0feet_WhenType_ShouldReturnTrue() {
-        QuantityMeasurement firstFeet = new QuantityMeasurement(0.0);
-        QuantityMeasurement secondFeet = new QuantityMeasurement(1.0);
-        boolean result = firstFeet.equals(secondFeet);
+        QuantityMeasurement firstQuantityMeasurement = new QuantityMeasurement(Lengths.FEET);
+        QuantityMeasurement secondQuantityMeasurement = new QuantityMeasurement(Lengths.FEET);
+        boolean result = firstQuantityMeasurement.equals(secondQuantityMeasurement);
         Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void given0FeetAnd3feet_WhenNotEqual_ShouldReturnFalse() {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(Lengths.FEET);
+        double firstFeet = quantityMeasurement.getMeasurementValue(0.0);
+        double secondFeet = quantityMeasurement.getMeasurementValue(3.0);
+        Assert.assertNotEquals(firstFeet, secondFeet, 0.0);
     }
 }
