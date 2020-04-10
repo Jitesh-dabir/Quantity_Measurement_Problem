@@ -135,4 +135,11 @@ public class QuantityMeasurementTest {
         double firstFeet = quantityMeasurementFeet.getMeasurementValue(1.0);
         Assert.assertEquals(12, firstFeet, 0.0);
     }
+
+    @Test
+    public void given3Feet_WhenCheckComparisonEqualTo1Yard_ShouldReturnTrue() {
+        QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.FEET_TO_YARD);
+        double firstFeet = quantityMeasurementFeet.getMeasurementValue(3.0);
+        Assert.assertEquals(1, firstFeet, 0.0);
+    }
 }
