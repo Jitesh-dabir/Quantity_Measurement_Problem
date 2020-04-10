@@ -1,25 +1,24 @@
-import java.util.Objects;
-
 public class QuantityMeasurement {
 
-    private final double feet;
+    Lengths measurementType;
 
-    public QuantityMeasurement(double feet) {
-        this.feet = feet;
+    public QuantityMeasurement(Lengths measurementType) {
+        this.measurementType = measurementType;
     }
 
     @Override
     public boolean equals(Object object) {
         if (object == null)
             return false;
-        if (object == this)
+        else if (object == this)
             return true;
-        if (object.getClass() == this.getClass())
+        else if (object.getClass() == this.getClass())
             return true;
-        return super.equals(object);
+        else
+            return super.equals(object);
     }
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to quantity measurement system");
+    public double getMeasurementValue(double feetValue) {
+        return (feetValue * measurementType.value);
     }
 }
