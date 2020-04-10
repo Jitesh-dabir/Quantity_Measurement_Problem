@@ -149,4 +149,11 @@ public class QuantityMeasurementTest {
         double firstFeet = quantityMeasurementFeet.getMeasurementValue(1.0);
         Assert.assertNotEquals(1, firstFeet, 0.0);
     }
+
+    @Test
+    public void given1Inch_WhenCheckComparisonNotEqualTo1Yard_ShouldReturnTrue() {
+        QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.INCH_TO_YARD);
+        double Inch = quantityMeasurementFeet.getMeasurementValue(1.0);
+        Assert.assertNotEquals(1, Inch, 0.0);
+    }
 }
