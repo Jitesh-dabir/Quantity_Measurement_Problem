@@ -62,8 +62,24 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given0InchAnd0Inch_WhenCheckReference_ShouldReturnTrue() {
-        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(Lengths.FEET);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(Lengths.INCH);
         boolean result = quantityMeasurement.equals(quantityMeasurement);
         Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void given0InchAnd0Inch_WhenCheckType_ShouldReturnTrue() {
+        QuantityMeasurement firstQuantityMeasurement = new QuantityMeasurement(Lengths.INCH);
+        QuantityMeasurement secondQuantityMeasurement = new QuantityMeasurement(Lengths.INCH);
+        boolean result = firstQuantityMeasurement.equals(secondQuantityMeasurement);
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void given3InchAnd4Inch_WhenNotEqual_ShouldReturnFalse() {
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(Lengths.INCH);
+        double firstFeet = quantityMeasurement.getMeasurementValue(0.0);
+        double secondFeet = quantityMeasurement.getMeasurementValue(3.0);
+        Assert.assertNotEquals(firstFeet, secondFeet, 0.0);
     }
 }
