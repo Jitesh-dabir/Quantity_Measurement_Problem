@@ -170,4 +170,11 @@ public class QuantityMeasurementTest {
         double inch = quantityMeasurementFeet.getMeasurementValue(36.0);
         Assert.assertEquals(1, inch, 0.0);
     }
+
+    @Test
+    public void given1Yard_WhenCheckComparisonEqualTo3Feet_ShouldReturnTrue() {
+        QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.YARD_TO_FEET);
+        double yard = quantityMeasurementFeet.getMeasurementValue(1.0);
+        Assert.assertEquals(3.0, yard, 0.0);
+    }
 }
