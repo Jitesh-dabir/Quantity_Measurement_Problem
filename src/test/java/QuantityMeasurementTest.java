@@ -202,4 +202,12 @@ public class QuantityMeasurementTest {
         double yard = quantityMeasurementFeet.getMeasurementValue(unitInch);
         Assert.assertEquals(unitCm, yard, 0.0);
     }
+
+    @Test
+    public void given1Inch_WhenCheckComparisonNotEqualTo1Cm_ShouldReturnTrue() {
+        double unitInch = 1.0, unitCm = 1.0;
+        QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.INCH_TO_CM);
+        double yard = quantityMeasurementFeet.getMeasurementValue(unitInch);
+        Assert.assertNotEquals(unitCm, yard, 0.0);
+    }
 }
