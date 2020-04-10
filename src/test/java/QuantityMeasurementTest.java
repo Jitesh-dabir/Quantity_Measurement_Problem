@@ -288,4 +288,12 @@ public class QuantityMeasurementTest {
         double gallonValue = quantityMeasurementInLitre.getMeasurementValue(unitInLitre);
         Assert.assertEquals(expectedUnitInGallon, gallonValue, 0.0);
     }
+
+    @Test
+    public void givenLitre_WhenCheckComparisonToMilliliter_ShouldReturnResultTrue() {
+        double unitInLitre = 1.0, unitInMilliliter = 1000.0;
+        QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.LITER_TO_MILLILITER);
+        double gallonValue = quantityMeasurementInLitre.getMeasurementValue(unitInLitre);
+        Assert.assertEquals(unitInMilliliter, gallonValue, 0.0);
+    }
 }
