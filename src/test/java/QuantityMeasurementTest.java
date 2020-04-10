@@ -262,4 +262,14 @@ public class QuantityMeasurementTest {
         double additionOfUnit = inch + inch1;
         Assert.assertEquals((int)expectedUnit, (int)additionOfUnit,0.0);
     }
+
+    @Test
+    public void givenGallon_WhenCheckComparisonToGallon_ShouldReturnResultTrue() {
+        double unitInGallon = 0.0, unitGallon = 0.0;
+        QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.GALLON_TO_LITRES);
+        double gallon = quantityMeasurementInch.getMeasurementValue(unitInGallon);
+        QuantityMeasurement quantityMeasurementInch1 = new QuantityMeasurement(Lengths.GALLON_TO_LITRES);
+        double gallonValue = quantityMeasurementInch1.getMeasurementValue(unitGallon);
+        Assert.assertEquals(gallon,gallonValue,0.0);
+    }
 }
