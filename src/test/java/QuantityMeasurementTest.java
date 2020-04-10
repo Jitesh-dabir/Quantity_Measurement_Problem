@@ -247,8 +247,19 @@ public class QuantityMeasurementTest {
         QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.FEET);
         double inch = quantityMeasurementInch.getMeasurementValue(unitInInch);
         QuantityMeasurement quantityMeasurementInch1 = new QuantityMeasurement(Lengths.FEET);
-        double feet = quantityMeasurementInch1.getMeasurementValue(unitInch);
-        double additionOfUnit = inch + feet;
+        double inch1 = quantityMeasurementInch1.getMeasurementValue(unitInch);
+        double additionOfUnit = inch + inch1;
         Assert.assertEquals(expectedUnit, additionOfUnit,0.0);
+    }
+
+    @Test
+    public void given2InchAnd2Cm_WhenAdditionOfTwoLength_ShouldReturnResultInInches() {
+        double unitInInch = 2.3, unitInCm = 2.5, expectedUnit = 3.0;
+        QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.INCH);
+        double inch = quantityMeasurementInch.getMeasurementValue(unitInInch);
+        QuantityMeasurement quantityMeasurementInch1 = new QuantityMeasurement(Lengths.CM_TO_INCH);
+        double inch1 = quantityMeasurementInch1.getMeasurementValue(unitInCm);
+        double additionOfUnit = inch + inch1;
+        Assert.assertEquals((int)expectedUnit, (int)additionOfUnit,0.0);
     }
 }
