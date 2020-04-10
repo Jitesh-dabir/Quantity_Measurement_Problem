@@ -313,4 +313,13 @@ public class QuantityMeasurementTest {
         double resultInLiters = literValue + unitInLiter;
         Assert.assertEquals(expectedInLiters, resultInLiters, 0.0);
     }
+
+    @Test
+    public void givenMilliliterAndLiters_WhenAdditionOfTwoVolumes_ShouldReturnResultInLiters() {
+        double unitInMilliliter = 1000.0, unitInLiter = 1.0, expectedInLiters = 2.0;
+        QuantityMeasurement quantityMeasurementLitre = new QuantityMeasurement(Lengths.MILLILITER_TO_LITER);
+        double literValue = quantityMeasurementLitre.getMeasurementValue(unitInMilliliter);
+        double resultInLiters = literValue + unitInLiter;
+        Assert.assertEquals(expectedInLiters, resultInLiters, 0.0);
+    }
 }
