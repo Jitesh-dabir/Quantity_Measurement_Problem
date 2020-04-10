@@ -266,10 +266,18 @@ public class QuantityMeasurementTest {
     @Test
     public void givenGallon_WhenCheckComparisonToGallon_ShouldReturnResultTrue() {
         double unitInGallon = 0.0, unitGallon = 0.0;
-        QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.GALLON_TO_LITRES);
-        double gallon = quantityMeasurementInch.getMeasurementValue(unitInGallon);
-        QuantityMeasurement quantityMeasurementInch1 = new QuantityMeasurement(Lengths.GALLON_TO_LITRES);
-        double gallonValue = quantityMeasurementInch1.getMeasurementValue(unitGallon);
+        QuantityMeasurement quantityMeasurementGallon = new QuantityMeasurement(Lengths.GALLON_TO_LITRES);
+        double gallon = quantityMeasurementGallon.getMeasurementValue(unitInGallon);
+        QuantityMeasurement quantityMeasurementInGallon = new QuantityMeasurement(Lengths.GALLON_TO_LITRES);
+        double gallonValue = quantityMeasurementInGallon.getMeasurementValue(unitGallon);
         Assert.assertEquals(gallon,gallonValue,0.0);
+    }
+
+    @Test
+    public void givenGallon_WhenCheckComparisonToLitre_ShouldReturnResultTrue() {
+        double unitInGallon = 1.0, expectedUnit = 3.78;
+        QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.GALLON_TO_LITRES);
+        double gallonValue = quantityMeasurementInLitre.getMeasurementValue(unitInGallon);
+        Assert.assertEquals(expectedUnit,gallonValue,0.0);
     }
 }
