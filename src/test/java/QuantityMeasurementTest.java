@@ -98,18 +98,27 @@ public class QuantityMeasurementTest {
     @Test
     public void given0FeetAnd0Inch_WhenCheckComparison_ShouldReturnTrue() {
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.FEET);
-        double firstInch = quantityMeasurementFeet.getMeasurementValue(0.0);
+        double firstFeet = quantityMeasurementFeet.getMeasurementValue(0.0);
         QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.INCH);
         double secondInch = quantityMeasurementInch.getMeasurementValue(0.0);
-        Assert.assertEquals(firstInch, secondInch, 0.0);
+        Assert.assertEquals(firstFeet, secondInch, 0.0);
     }
 
     @Test
-    public void given1FeetAnd1Inch_WhenCheckComparison_ShouldReturnFalse() {
+    public void given1FeetAnd1Inch_WhenCheckComparisonAndNotEqual_ShouldReturnTrue() {
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.FEET);
-        double firstInch = quantityMeasurementFeet.getMeasurementValue(1.0);
+        double firstFeet = quantityMeasurementFeet.getMeasurementValue(1.0);
         QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.INCH);
         double secondInch = quantityMeasurementInch.getMeasurementValue(1.0);
-        Assert.assertNotEquals(firstInch, secondInch, 0.0);
+        Assert.assertNotEquals(firstFeet, secondInch, 0.0);
+    }
+
+    @Test
+    public void given1InchAnd1Feet_WhenCheckComparisonAndNotEqual_ShouldReturnTrue() {
+        QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.INCH);
+        double firstInch = quantityMeasurementFeet.getMeasurementValue(1.0);
+        QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.FEET);
+        double secondFeet = quantityMeasurementInch.getMeasurementValue(1.0);
+        Assert.assertNotEquals(firstInch, secondFeet, 0.0);
     }
 }
