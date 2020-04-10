@@ -121,4 +121,11 @@ public class QuantityMeasurementTest {
         double secondFeet = quantityMeasurementInch.getMeasurementValue(1.0);
         Assert.assertNotEquals(firstInch, secondFeet, 0.0);
     }
+
+    @Test
+    public void given1Feet_WhenCheckComparisonEqualTo12Inch_ShouldReturnTrue() {
+        QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.FEET);
+        double firstFeet = quantityMeasurementFeet.getMeasurementValue(1.0);
+        Assert.assertEquals(12, firstFeet, 0.0);
+    }
 }
