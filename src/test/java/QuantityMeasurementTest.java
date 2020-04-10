@@ -240,4 +240,15 @@ public class QuantityMeasurementTest {
         double additionOfUnit = inch + feet;
         Assert.assertEquals(expectedUnit, additionOfUnit,0.0);
     }
+
+    @Test
+    public void given1FeetAnd1Feet_WhenAdditionOfTwoLength_ShouldReturnResultInInches() {
+        double unitInInch = 1.0, unitInch = 1.0, expectedUnit = 24.0;
+        QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.FEET);
+        double inch = quantityMeasurementInch.getMeasurementValue(unitInInch);
+        QuantityMeasurement quantityMeasurementInch1 = new QuantityMeasurement(Lengths.FEET);
+        double feet = quantityMeasurementInch1.getMeasurementValue(unitInch);
+        double additionOfUnit = inch + feet;
+        Assert.assertEquals(expectedUnit, additionOfUnit,0.0);
+    }
 }
