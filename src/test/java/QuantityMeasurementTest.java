@@ -362,7 +362,15 @@ public class QuantityMeasurementTest {
         double tonneValue = quantityMeasurementInTonne.getMeasurementValue(unitInTonne);
         QuantityMeasurement quantityMeasurementIngram = new QuantityMeasurement(Lengths.GRAM_TO_KG);
         double gramValue = quantityMeasurementIngram.getMeasurementValue(unitInGram);
-        double additionResult= tonneValue+gramValue;
+        double additionResult = tonneValue + gramValue;
         Assert.assertEquals(expectedUnitInKg, additionResult, 0.0);
+    }
+
+    @Test
+    public void givenFahrenheit_WhenCheckComparisonToCelsius_ShouldReturnResult() {
+        double unitInFahrenheit = 212, unitInCelsius = 100;
+        QuantityMeasurement quantityMeasurementInFahrenheit = new QuantityMeasurement(Lengths.FAHRENHEIT_TO_CELSIUS);
+        double celsiusValue = quantityMeasurementInFahrenheit.getMeasurementValue(unitInFahrenheit);
+        Assert.assertEquals(unitInCelsius, celsiusValue, 0.0);
     }
 }
