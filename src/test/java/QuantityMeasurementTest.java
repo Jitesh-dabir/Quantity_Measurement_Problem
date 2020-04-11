@@ -322,4 +322,13 @@ public class QuantityMeasurementTest {
         double resultInLiters = literValue + unitInLiter;
         Assert.assertEquals(expectedInLiters, resultInLiters, 0.0);
     }
+
+    @Test
+    public void givenKg_WhenCheckComparisonToGrams_ShouldReturnResult() {
+        double unitInKilogram = 1.0, unitInGrams = 1000.0;
+        QuantityMeasurement quantityMeasurementInKg = new QuantityMeasurement(Lengths.KG_TO_GRAMS);
+        double literValue = quantityMeasurementInKg.getMeasurementValue(unitInKilogram);
+        Assert.assertEquals(unitInGrams, literValue, 0.0);
+    }
+
 }
