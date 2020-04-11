@@ -5,7 +5,7 @@ public enum Lengths {
     GALLON_TO_LITRES(1 * 3.78), LITRES_TO_GALLON(1 / 3.78),
     LITER_TO_MILLILITER(1 * 1000.0), MILLILITER_TO_LITER(1 / 1000.0),
     KG_TO_GRAMS(1 * 1000.0), TONNE_TO_KG(1 * 1000.0), GRAM_TO_KG(1 / 1000.0),
-    KG_TO_TONNE(1 / 1000.0);
+    KG_TO_TONNE(1 / 1000.0), FAHRENHEIT_TO_CELSIUS(5.0 / 9.0);
     public final double value;
 
     Lengths(double value) {
