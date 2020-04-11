@@ -19,19 +19,18 @@ public class QuantityMeasurement {
             return super.equals(object);
     }
 
-    public double getMeasurementValue(double feetValue) {
+    public double getMeasurementValue(double unitValue) {
         switch (measurementType) {
             case FAHRENHEIT_TO_CELSIUS:
-                conversionResult = (feetValue - 32) * measurementType.value;
+                conversionResult = (unitValue - 32) * measurementType.value;
                 break;
             case CELSIUS_TO_FAHRENHEIT:
-                conversionResult = (feetValue * measurementType.value) + 32;
+                conversionResult = (unitValue * measurementType.value) + 32;
                 break;
             default:
-                conversionResult = (feetValue * measurementType.value);
+                conversionResult = (unitValue * measurementType.value);
                 break;
         }
         return conversionResult;
-
     }
 }
