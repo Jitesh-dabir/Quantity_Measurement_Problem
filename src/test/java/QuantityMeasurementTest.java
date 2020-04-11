@@ -373,4 +373,12 @@ public class QuantityMeasurementTest {
         double celsiusValue = quantityMeasurementInFahrenheit.getMeasurementValue(unitInFahrenheit);
         Assert.assertEquals(unitInCelsius, celsiusValue, 0.0);
     }
+
+    @Test
+    public void givenCelsius_WhenCheckComparisonToFahrenheit_ShouldReturnResult() {
+        double unitInFahrenheit = 212, unitInCelsius = 100;
+        QuantityMeasurement quantityMeasurementInFahrenheit = new QuantityMeasurement(Lengths.CELSIUS_TO_FAHRENHEIT);
+        double celsiusValue = quantityMeasurementInFahrenheit.getMeasurementValue(unitInCelsius);
+        Assert.assertEquals(unitInFahrenheit, celsiusValue, 0.0);
+    }
 }
