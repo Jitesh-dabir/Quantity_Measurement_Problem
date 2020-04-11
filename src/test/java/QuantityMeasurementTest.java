@@ -333,7 +333,7 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenTonne_WhenCheckComparisonToKilograms_ShouldReturnResult() {
-        double unitInKilogram = 1.0, unitInTonne = 1000.0;
+        double unitInKilogram = 1000.0, unitInTonne = 1.0;
         QuantityMeasurement quantityMeasurementInTonne = new QuantityMeasurement(Lengths.TONNE_TO_KG);
         double kilogramValue = quantityMeasurementInTonne.getMeasurementValue(unitInTonne);
         Assert.assertEquals(unitInKilogram, kilogramValue, 0.0);
@@ -349,9 +349,20 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenKg_WhenCheckComparisonToTonne_ShouldReturnResult() {
-        double unitInKilogram = 1.0, unitInTonne = 1000.0;
+        double unitInKilogram = 1000.0, unitInTonne = 1.0;
         QuantityMeasurement quantityMeasurementInTonne = new QuantityMeasurement(Lengths.KG_TO_TONNE);
         double kilogramValue = quantityMeasurementInTonne.getMeasurementValue(unitInKilogram);
         Assert.assertEquals(unitInTonne, kilogramValue, 0.0);
+    }
+
+    @Test
+    public void givenTonneAndGram_WhenAdditionOfTonneAndGram_ShouldReturnResultInKg() {
+        double unitInGram = 1000.0, unitInTonne = 1.0, expectedUnitInKg = 1001.0;
+        QuantityMeasurement quantityMeasurementInTonne = new QuantityMeasurement(Lengths.TONNE_TO_KG);
+        double tonneValue = quantityMeasurementInTonne.getMeasurementValue(unitInTonne);
+        QuantityMeasurement quantityMeasurementIngram = new QuantityMeasurement(Lengths.GRAM_TO_KG);
+        double gramValue = quantityMeasurementIngram.getMeasurementValue(unitInGram);
+        double additionResult= tonneValue+gramValue;
+        Assert.assertEquals(expectedUnitInKg, additionResult, 0.0);
     }
 }
