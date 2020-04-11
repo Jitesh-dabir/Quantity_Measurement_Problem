@@ -3,6 +3,7 @@ public class QuantityMeasurement {
     Lengths measurementType;
     double conversionResult;
 
+    //PARAMETER CONSTRUCTOR
     public QuantityMeasurement(Lengths measurementType) {
         this.measurementType = measurementType;
     }
@@ -19,6 +20,7 @@ public class QuantityMeasurement {
             return super.equals(object);
     }
 
+    //METHOD TO GET CONVERSIONS
     public double getMeasurementValue(double unitValue) {
         switch (measurementType) {
             case FAHRENHEIT_TO_CELSIUS:
