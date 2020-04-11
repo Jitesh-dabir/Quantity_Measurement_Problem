@@ -331,4 +331,11 @@ public class QuantityMeasurementTest {
         Assert.assertEquals(unitInGrams, literValue, 0.0);
     }
 
+    @Test
+    public void givenTonne_WhenCheckComparisonToKilograms_ShouldReturnResult() {
+        double unitInKilogram = 1.0, unitInTonne = 1000.0;
+        QuantityMeasurement quantityMeasurementInKg = new QuantityMeasurement(Lengths.TONNE_TO_KG);
+        double literValue = quantityMeasurementInKg.getMeasurementValue(unitInTonne);
+        Assert.assertEquals(unitInKilogram, literValue, 0.0);
+    }
 }
