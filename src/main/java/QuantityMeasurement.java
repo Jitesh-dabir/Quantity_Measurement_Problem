@@ -19,8 +19,14 @@ public class QuantityMeasurement {
     }
 
     public double getMeasurementValue(double feetValue) {
-        if (measurementType.equals(Lengths.FAHRENHEIT_TO_CELSIUS))
-            return (feetValue - 32) * measurementType.value;
-        return (feetValue * measurementType.value);
+        switch (measurementType) {
+            case FAHRENHEIT_TO_CELSIUS:
+                return (feetValue - 32) * measurementType.value;
+            case CELSIUS_TO_FAHRENHEIT:
+                return (feetValue * measurementType.value) + 32;
+            default:
+                return (feetValue * measurementType.value);
+        }
+
     }
 }
