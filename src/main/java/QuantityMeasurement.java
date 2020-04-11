@@ -1,6 +1,7 @@
 public class QuantityMeasurement {
 
     Lengths measurementType;
+    double conversionResult;
 
     public QuantityMeasurement(Lengths measurementType) {
         this.measurementType = measurementType;
@@ -21,12 +22,16 @@ public class QuantityMeasurement {
     public double getMeasurementValue(double feetValue) {
         switch (measurementType) {
             case FAHRENHEIT_TO_CELSIUS:
-                return (feetValue - 32) * measurementType.value;
+                conversionResult = (feetValue - 32) * measurementType.value;
+                break;
             case CELSIUS_TO_FAHRENHEIT:
-                return (feetValue * measurementType.value) + 32;
+                conversionResult = (feetValue * measurementType.value) + 32;
+                break;
             default:
-                return (feetValue * measurementType.value);
+                conversionResult = (feetValue * measurementType.value);
+                break;
         }
+        return conversionResult;
 
     }
 }
