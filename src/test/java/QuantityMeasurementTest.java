@@ -4,7 +4,7 @@ import org.junit.Test;
 public class QuantityMeasurementTest {
 
     @Test
-    public void given0FeetAnd0feet_WhenEqual_ShouldReturnTrue() {
+    public void given0FeetAnd0feet_WhenEqual_ShouldReturnTrue() throws QuantityMeasurementException {
         double firstUnit = 0.0, secondUnit = 0.0;
         QuantityMeasurement firstQuantityMeasurement = new QuantityMeasurement(Lengths.FEET, firstUnit);
         QuantityMeasurement secondQuantityMeasurement = new QuantityMeasurement(Lengths.FEET, secondUnit);
@@ -39,7 +39,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given0FeetAnd3feet_WhenNotEqual_ShouldReturnFalse() {
+    public void given0FeetAnd3feet_WhenNotEqual_ShouldReturnFalse() throws QuantityMeasurementException {
         double firstUnit = 0.0, secondUnit = 3.0;
         QuantityMeasurement firstQuantityMeasurement = new QuantityMeasurement(Lengths.FEET, firstUnit);
         QuantityMeasurement secondQuantityMeasurement = new QuantityMeasurement(Lengths.FEET, secondUnit);
@@ -49,7 +49,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenSameValueToNBothFeet_WhenBothEqual_ShouldReturnTrue() {
+    public void givenSameValueToNBothFeet_WhenBothEqual_ShouldReturnTrue() throws QuantityMeasurementException {
         double firstUnit = 50.0, secondUnit = 50.0;
         QuantityMeasurement firstQuantityMeasurement = new QuantityMeasurement(Lengths.FEET, firstUnit);
         QuantityMeasurement secondQuantityMeasurement = new QuantityMeasurement(Lengths.FEET, secondUnit);
@@ -59,7 +59,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given0InchAnd0Inch_WhenEqual_ShouldReturnTrue() {
+    public void given0InchAnd0Inch_WhenEqual_ShouldReturnTrue() throws QuantityMeasurementException {
         double firstUnit = 0.0, secondUnit = 0.0;
         QuantityMeasurement firstQuantityMeasurement = new QuantityMeasurement(Lengths.INCH, firstUnit);
         QuantityMeasurement secondQuantityMeasurement = new QuantityMeasurement(Lengths.INCH, secondUnit);
@@ -94,7 +94,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given3InchAnd4Inch_WhenNotEqual_ShouldReturnFalse() {
+    public void given3InchAnd4Inch_WhenNotEqual_ShouldReturnFalse() throws QuantityMeasurementException {
         double firstUnit = 0.0, secondUnit = 3.0;
         QuantityMeasurement firstQuantityMeasurement = new QuantityMeasurement(Lengths.INCH, firstUnit);
         QuantityMeasurement secondQuantityMeasurement = new QuantityMeasurement(Lengths.INCH, secondUnit);
@@ -104,7 +104,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenSameValueToNBothInch_WhenBothEqual_ShouldReturnTrue() {
+    public void givenSameValueToNBothInch_WhenBothEqual_ShouldReturnTrue() throws QuantityMeasurementException {
         double firstUnit = 600.0, secondUnit = 600.0;
         QuantityMeasurement firstQuantityMeasurement = new QuantityMeasurement(Lengths.INCH, firstUnit);
         QuantityMeasurement secondQuantityMeasurement = new QuantityMeasurement(Lengths.INCH, secondUnit);
@@ -114,7 +114,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given0FeetAnd0Inch_WhenCheckComparison_ShouldReturnTrue() {
+    public void given0FeetAnd0Inch_WhenCheckComparison_ShouldReturnTrue() throws QuantityMeasurementException {
         double firstUnit = 0.0, secondUnit = 0.0;
         QuantityMeasurement firstQuantityMeasurement = new QuantityMeasurement(Lengths.FEET, firstUnit);
         double firstFeet = firstQuantityMeasurement.getMeasurementValue();
@@ -124,7 +124,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1FeetAnd1Inch_WhenCheckComparisonAndNotEqual_ShouldReturnTrue() {
+    public void given1FeetAnd1Inch_WhenCheckComparisonAndNotEqual_ShouldReturnTrue() throws QuantityMeasurementException {
         double firstUnit = 1.0, secondUnit = 1.0;
         QuantityMeasurement firstQuantityMeasurement = new QuantityMeasurement(Lengths.FEET, firstUnit);
         double firstFeet = firstQuantityMeasurement.getMeasurementValue();
@@ -134,7 +134,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1InchAnd1Feet_WhenCheckComparisonAndNotEqual_ShouldReturnTrue() {
+    public void given1InchAnd1Feet_WhenCheckComparisonAndNotEqual_ShouldReturnTrue() throws QuantityMeasurementException {
         double firstUnit = 1.0, secondUnit = 1.0;
         QuantityMeasurement firstQuantityMeasurement = new QuantityMeasurement(Lengths.INCH_TO_FEET, firstUnit);
         double firstInch = firstQuantityMeasurement.getMeasurementValue();
@@ -144,7 +144,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1Feet_WhenCheckComparisonEqualTo12Inch_ShouldReturnTrue() {
+    public void given1Feet_WhenCheckComparisonEqualTo12Inch_ShouldReturnTrue() throws QuantityMeasurementException {
         double unitFeet = 1.0, unitInch = 12.0;
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.FEET, unitFeet);
         double firstFeet = quantityMeasurementFeet.getMeasurementValue();
@@ -152,7 +152,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given12Inch_WhenCheckComparisonEqualTo1Feet_ShouldReturnTrue() {
+    public void given12Inch_WhenCheckComparisonEqualTo1Feet_ShouldReturnTrue() throws QuantityMeasurementException {
         double unitFeet = 1.0, unitInch = 12.0;
         QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.INCH_TO_FEET, unitInch);
         double firstFeet = quantityMeasurementInch.getMeasurementValue();
@@ -160,7 +160,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given3Feet_WhenCheckComparisonEqualTo1Yard_ShouldReturnTrue() {
+    public void given3Feet_WhenCheckComparisonEqualTo1Yard_ShouldReturnTrue() throws QuantityMeasurementException {
         double unitFeet = 3.0, unitYard = 1.0;
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.FEET_TO_YARD, unitFeet);
         double firstFeet = quantityMeasurementFeet.getMeasurementValue();
@@ -168,7 +168,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1Feet_WhenCheckComparisonNotEqualTo1Yard_ShouldReturnTrue() {
+    public void given1Feet_WhenCheckComparisonNotEqualTo1Yard_ShouldReturnTrue() throws QuantityMeasurementException {
         double unitFeet = 1.0, unitYard = 1.0;
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.FEET_TO_YARD, unitFeet);
         double firstFeet = quantityMeasurementFeet.getMeasurementValue();
@@ -176,7 +176,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1Inch_WhenCheckComparisonNotEqualTo1Yard_ShouldReturnTrue() {
+    public void given1Inch_WhenCheckComparisonNotEqualTo1Yard_ShouldReturnTrue() throws QuantityMeasurementException {
         double unitInch = 1.0, unitYard = 1.0;
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.INCH_TO_YARD, unitInch);
         double inch = quantityMeasurementFeet.getMeasurementValue();
@@ -184,7 +184,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1Yard_WhenCheckComparisonEqualTo36Inch_ShouldReturnTrue() {
+    public void given1Yard_WhenCheckComparisonEqualTo36Inch_ShouldReturnTrue() throws QuantityMeasurementException {
         double unitInch = 36.0, unitYard = 1.0;
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.YARD_TO_INCH, unitYard);
         double yard = quantityMeasurementFeet.getMeasurementValue();
@@ -192,7 +192,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given36Inch_WhenCheckComparisonEqualTo1Yard_ShouldReturnTrue() {
+    public void given36Inch_WhenCheckComparisonEqualTo1Yard_ShouldReturnTrue() throws QuantityMeasurementException {
         double unitInch = 36.0, unitYard = 1.0;
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.INCH_TO_YARD, unitInch);
         double inch = quantityMeasurementFeet.getMeasurementValue();
@@ -200,7 +200,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1Yard_WhenCheckComparisonEqualTo3Feet_ShouldReturnTrue() {
+    public void given1Yard_WhenCheckComparisonEqualTo3Feet_ShouldReturnTrue() throws QuantityMeasurementException {
         double unitFeet = 3.0, unitYard = 1.0;
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.YARD_TO_FEET, unitYard);
         double yard = quantityMeasurementFeet.getMeasurementValue();
@@ -208,7 +208,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given2Inch_WhenCheckComparisonEqualTo5Cm_ShouldReturnTrue() {
+    public void given2Inch_WhenCheckComparisonEqualTo5Cm_ShouldReturnTrue() throws QuantityMeasurementException {
         double unitInch = 2.0, unitCm = 5.08;
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.INCH_TO_CM, unitInch);
         double inch = quantityMeasurementFeet.getMeasurementValue();
@@ -216,7 +216,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1Inch_WhenCheckComparisonNotEqualTo1Cm_ShouldReturnTrue() {
+    public void given1Inch_WhenCheckComparisonNotEqualTo1Cm_ShouldReturnTrue() throws QuantityMeasurementException {
         double unitInch = 1.0, unitCm = 1.0;
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.INCH_TO_CM, unitInch);
         double inch = quantityMeasurementFeet.getMeasurementValue();
@@ -224,7 +224,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given5Cm_WhenCheckComparisonEqualTo2Inch_ShouldReturnTrue() {
+    public void given5Cm_WhenCheckComparisonEqualTo2Inch_ShouldReturnTrue() throws QuantityMeasurementException {
         double unitInch = 2.0, unitCm = 5.09;
         QuantityMeasurement quantityMeasurementFeet = new QuantityMeasurement(Lengths.CM_TO_INCH, unitCm);
         double centimeter = quantityMeasurementFeet.getMeasurementValue();
@@ -232,7 +232,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeetAndInch_WhenAdditionOfTwoLength_ShouldReturnResult() {
+    public void givenFeetAndInch_WhenAdditionOfTwoLength_ShouldReturnResult() throws QuantityMeasurementException {
         double unitFeet = 1.0, unitInch = 2.0, expectedUnit = 14;
         QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.FEET, unitFeet);
         double inch = quantityMeasurementInch.getMeasurementValue();
@@ -243,7 +243,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given2InchAnd2Inch_WhenAdditionOfTwoLength_ShouldReturn4Result() {
+    public void given2InchAnd2Inch_WhenAdditionOfTwoLength_ShouldReturn4Result() throws QuantityMeasurementException {
         double unitInInch = 2.0, unitInch = 2.0, expectedUnit = 4.0;
         QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.INCH, unitInInch);
         double inch = quantityMeasurementInch.getMeasurementValue();
@@ -254,7 +254,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1FeetAnd1Feet_WhenAdditionOfTwoLength_ShouldReturnResultInInches() {
+    public void given1FeetAnd1Feet_WhenAdditionOfTwoLength_ShouldReturnResultInInches() throws QuantityMeasurementException {
         double unitInFeet = 1.0, unitFeet = 1.0, expectedUnit = 24.0;
         QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.FEET, unitInFeet);
         double feetValue = quantityMeasurementInch.getMeasurementValue();
@@ -265,7 +265,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given2InchAnd2Cm_WhenAdditionOfTwoLength_ShouldReturnResultInInches() {
+    public void given2InchAnd2Cm_WhenAdditionOfTwoLength_ShouldReturnResultInInches() throws QuantityMeasurementException {
         double unitInInch = 2.3, unitInCm = 2.5, expectedUnit = 3.0;
         QuantityMeasurement quantityMeasurementInch = new QuantityMeasurement(Lengths.INCH, unitInInch);
         double inch = quantityMeasurementInch.getMeasurementValue();
@@ -276,7 +276,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenGallon_WhenCheckComparisonToGallon_ShouldReturnResultTrue() {
+    public void givenGallon_WhenCheckComparisonToGallon_ShouldReturnResultTrue() throws QuantityMeasurementException {
         double unitInGallon = 0.0, unitGallon = 0.0;
         QuantityMeasurement quantityMeasurementGallon = new QuantityMeasurement(Lengths.GALLON_TO_LITRES, unitInGallon);
         double gallon = quantityMeasurementGallon.getMeasurementValue();
@@ -286,7 +286,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenGallon_WhenCheckComparisonToLitre_ShouldReturnResultTrue() {
+    public void givenGallon_WhenCheckComparisonToLitre_ShouldReturnResultTrue() throws QuantityMeasurementException {
         double unitInGallon = 1.0, expectedUnitInLitre = 3.78;
         QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.GALLON_TO_LITRES, unitInGallon);
         double literValue = quantityMeasurementInLitre.getMeasurementValue();
@@ -294,7 +294,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLiter_WhenCheckComparisonToGallon_ShouldReturnResultTrue() {
+    public void givenLiter_WhenCheckComparisonToGallon_ShouldReturnResultTrue() throws QuantityMeasurementException {
         double unitInLiter = 3.78, expectedUnitInGallon = 1.0;
         QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.LITRES_TO_GALLON, unitInLiter);
         double gallonValue = quantityMeasurementInLitre.getMeasurementValue();
@@ -302,7 +302,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLiter_WhenCheckComparisonToMilliliter_ShouldReturnResultTrue() {
+    public void givenLiter_WhenCheckComparisonToMilliliter_ShouldReturnResultTrue() throws QuantityMeasurementException {
         double unitInLitre = 1.0, unitInMilliliter = 1000.0;
         QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.LITER_TO_MILLILITER, unitInLitre);
         double milliliterValue = quantityMeasurementInLitre.getMeasurementValue();
@@ -310,7 +310,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenMilliliter_WhenCheckComparisonToLiter_ShouldReturnResultTrue() {
+    public void givenMilliliter_WhenCheckComparisonToLiter_ShouldReturnResultTrue() throws QuantityMeasurementException {
         double unitInMillilitre = 1000.0, unitInLiter = 1.0;
         QuantityMeasurement quantityMeasurementInLitre = new QuantityMeasurement(Lengths.MILLILITER_TO_LITER, unitInMillilitre);
         double literValue = quantityMeasurementInLitre.getMeasurementValue();
@@ -318,7 +318,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenGallonAndLiters_WhenAdditionOfTwoVolumes_ShouldReturnResultInLiters() {
+    public void givenGallonAndLiters_WhenAdditionOfTwoVolumes_ShouldReturnResultInLiters() throws QuantityMeasurementException {
         double unitInGallon = 1.0, unitInLiter = 3.78, expectedInLiters = 7.56;
         QuantityMeasurement quantityMeasurementLitre = new QuantityMeasurement(Lengths.GALLON_TO_LITRES, unitInGallon);
         double literValue = quantityMeasurementLitre.getMeasurementValue();
@@ -327,7 +327,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenMilliliterAndLiters_WhenAdditionOfTwoVolumes_ShouldReturnResultInLiters() {
+    public void givenMilliliterAndLiters_WhenAdditionOfTwoVolumes_ShouldReturnResultInLiters() throws QuantityMeasurementException {
         double unitInMilliliter = 1000.0, unitInLiter = 1.0, expectedInLiters = 2.0;
         QuantityMeasurement quantityMeasurementLitre = new QuantityMeasurement(Lengths.MILLILITER_TO_LITER, unitInMilliliter);
         double literValue = quantityMeasurementLitre.getMeasurementValue();
@@ -336,7 +336,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenKg_WhenCheckComparisonToGrams_ShouldReturnResult() {
+    public void givenKg_WhenCheckComparisonToGrams_ShouldReturnResult() throws QuantityMeasurementException {
         double unitInKilogram = 1.0, unitInGrams = 1000.0;
         QuantityMeasurement quantityMeasurementInKg = new QuantityMeasurement(Lengths.KG_TO_GRAMS, unitInKilogram);
         double gramValue = quantityMeasurementInKg.getMeasurementValue();
@@ -344,7 +344,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenTonne_WhenCheckComparisonToKilograms_ShouldReturnResult() {
+    public void givenTonne_WhenCheckComparisonToKilograms_ShouldReturnResult() throws QuantityMeasurementException {
         double unitInKilogram = 1000.0, unitInTonne = 1.0;
         QuantityMeasurement quantityMeasurementInTonne = new QuantityMeasurement(Lengths.TONNE_TO_KG, unitInTonne);
         double kilogramValue = quantityMeasurementInTonne.getMeasurementValue();
@@ -352,7 +352,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenGrams_WhenCheckComparisonToKilogram_ShouldReturnResult() {
+    public void givenGrams_WhenCheckComparisonToKilogram_ShouldReturnResult() throws QuantityMeasurementException {
         double unitInKilogram = 1.0, unitInGrams = 1000.0;
         QuantityMeasurement quantityMeasurementInKg = new QuantityMeasurement(Lengths.GRAM_TO_KG, unitInGrams);
         double gramValue = quantityMeasurementInKg.getMeasurementValue();
@@ -360,7 +360,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenKg_WhenCheckComparisonToTonne_ShouldReturnResult() {
+    public void givenKg_WhenCheckComparisonToTonne_ShouldReturnResult() throws QuantityMeasurementException {
         double unitInKilogram = 1000.0, unitInTonne = 1.0;
         QuantityMeasurement quantityMeasurementInTonne = new QuantityMeasurement(Lengths.KG_TO_TONNE, unitInKilogram);
         double kilogramValue = quantityMeasurementInTonne.getMeasurementValue();
@@ -368,7 +368,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenTonneAndGram_WhenAdditionOfTonneAndGram_ShouldReturnResultInKg() {
+    public void givenTonneAndGram_WhenAdditionOfTonneAndGram_ShouldReturnResultInKg() throws QuantityMeasurementException {
         double unitInGram = 1000.0, unitInTonne = 1.0, expectedUnitInKg = 1001.0;
         QuantityMeasurement quantityMeasurementInTonne = new QuantityMeasurement(Lengths.TONNE_TO_KG, unitInTonne);
         double tonneValue = quantityMeasurementInTonne.getMeasurementValue();
@@ -379,7 +379,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFahrenheit_WhenCheckComparisonToCelsius_ShouldReturnResult() {
+    public void givenFahrenheit_WhenCheckComparisonToCelsius_ShouldReturnResult() throws QuantityMeasurementException {
         double unitInFahrenheit = 212, unitInCelsius = 100;
         QuantityMeasurement quantityMeasurementInFahrenheit = new QuantityMeasurement(Lengths.FAHRENHEIT_TO_CELSIUS, unitInFahrenheit);
         double celsiusValue = quantityMeasurementInFahrenheit.getMeasurementValue();
@@ -387,10 +387,23 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenCelsius_WhenCheckComparisonToFahrenheit_ShouldReturnResult() {
+    public void givenCelsius_WhenCheckComparisonToFahrenheit_ShouldReturnResult() throws QuantityMeasurementException {
         double unitInFahrenheit = 212, unitInCelsius = 100;
         QuantityMeasurement quantityMeasurementInFahrenheit = new QuantityMeasurement(Lengths.CELSIUS_TO_FAHRENHEIT, unitInCelsius);
         double celsiusValue = quantityMeasurementInFahrenheit.getMeasurementValue();
         Assert.assertEquals(unitInFahrenheit, celsiusValue, 0.0);
+    }
+
+    @Test
+    public void givenNullMeasurementType_WhenCheckComparisonToFahrenheit_ShouldThroughException() throws QuantityMeasurementException {
+        try {
+            double unitInFahrenheit = 212, unitInCelsius = 100;
+            QuantityMeasurement quantityMeasurementInFahrenheit = new QuantityMeasurement(null, unitInCelsius);
+            double celsiusValue = quantityMeasurementInFahrenheit.getMeasurementValue();
+            Assert.assertEquals(unitInFahrenheit, celsiusValue, 0.0);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.MyException.NULL_VALUE, e.type);
+        }
+
     }
 }
