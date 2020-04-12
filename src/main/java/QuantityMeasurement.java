@@ -27,7 +27,9 @@ public class QuantityMeasurement {
     }
 
     //METHOD TO GET CONVERSIONS
-    public double getMeasurementValue() {
+    public double getMeasurementValue() throws QuantityMeasurementException {
+        if (measurementType == null)
+            throw new QuantityMeasurementException(QuantityMeasurementException.MyException.NULL_VALUE,"Null Measurement type");
         switch (measurementType) {
             case FAHRENHEIT_TO_CELSIUS:
                 return (unitValue - 32) * measurementType.value;
