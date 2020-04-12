@@ -1,38 +1,40 @@
+import java.util.Objects;
+
 public class QuantityMeasurement {
 
+    private final double unitValue;
     Lengths measurementType;
     double conversionResult;
 
     //PARAMETER CONSTRUCTOR
-    public QuantityMeasurement(Lengths measurementType) {
+    public QuantityMeasurement(Lengths measurementType, double unitValue) {
         this.measurementType = measurementType;
+        this.unitValue = unitValue;
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (object == null)
-            return false;
-        else if (object == this)
-            return true;
-        else if (object.getClass() == this.getClass())
-            return true;
-        else
-            return super.equals(object);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        QuantityMeasurement that = (QuantityMeasurement) o;
+        return Double.compare(that.unitValue, unitValue) == 0 &&
+                measurementType == that.measurementType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(unitValue, measurementType, conversionResult);
     }
 
     //METHOD TO GET CONVERSIONS
-    public double getMeasurementValue(double unitValue) {
+    public double getMeasurementValue() {
         switch (measurementType) {
             case FAHRENHEIT_TO_CELSIUS:
-                conversionResult = (unitValue - 32) * measurementType.value;
-                break;
+                return (unitValue - 32) * measurementType.value;
             case CELSIUS_TO_FAHRENHEIT:
-                conversionResult = (unitValue * measurementType.value) + 32;
-                break;
+                return (unitValue * measurementType.value) + 32;
             default:
-                conversionResult = (unitValue * measurementType.value);
-                break;
+                return (unitValue * measurementType.value);
         }
-        return conversionResult;
     }
 }
