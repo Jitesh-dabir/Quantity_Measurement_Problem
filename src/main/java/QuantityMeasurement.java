@@ -3,11 +3,16 @@ import java.util.Objects;
 public class QuantityMeasurement {
 
     private final double unitValue;
-    Lengths measurementType;
-    double conversionResult;
+    MeasurementUnits measurementType;
+    double measurementValue;
+
+
+    public QuantityMeasurement() {
+        this.unitValue = 0;
+    }
 
     //PARAMETER CONSTRUCTOR
-    public QuantityMeasurement(Lengths measurementType, double unitValue) {
+    public QuantityMeasurement(MeasurementUnits measurementType, double unitValue) {
         this.measurementType = measurementType;
         this.unitValue = unitValue;
     }
@@ -23,20 +28,23 @@ public class QuantityMeasurement {
 
     @Override
     public int hashCode() {
-        return Objects.hash(unitValue, measurementType, conversionResult);
+        return Objects.hash(unitValue, measurementType);
     }
 
-    //METHOD TO GET CONVERSIONS
     public double getMeasurementValue() throws QuantityMeasurementException {
-        if (measurementType == null)
-            throw new QuantityMeasurementException(QuantityMeasurementException.MyException.NULL_VALUE,"Null Measurement type");
-        switch (measurementType) {
-            case FAHRENHEIT_TO_CELSIUS:
-                return (unitValue - 32) * measurementType.value;
-            case CELSIUS_TO_FAHRENHEIT:
-                return (unitValue * measurementType.value) + 32;
-            default:
-                return (unitValue * measurementType.value);
-        }
+        measurementValue = MeasurementAdapterFactory.getQuantityObject(unitValue, measurementType);
+        return measurementValue;
+    }
+
+    public boolean compare(QuantityMeasurement type) throws QuantityMeasurementException {
+        if (this.measurementType.getType() != type.measurementType.getType())
+            throw new QuantityMeasurementException(QuantityMeasurementException.MyException.WRONG_TYPES, "You entered wrong type");
+        return true;
+    }
+
+    public double additionOfMeasurement(QuantityMeasurement that) throws QuantityMeasurementException {
+        if (this.measurementType.getType() == MeasurementUnitTypes.TEMPERATURE && that.measurementType.getType() == MeasurementUnitTypes.TEMPERATURE)
+            throw new QuantityMeasurementException(QuantityMeasurementException.MyException.ADDITION_NOT_POSSIBLE, "You can't add temperature");
+        return this.measurementValue + that.measurementValue;
     }
 }
