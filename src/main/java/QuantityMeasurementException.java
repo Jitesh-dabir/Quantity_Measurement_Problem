@@ -1,11 +1,11 @@
 public class QuantityMeasurementException extends Exception {
     enum MyException {
-        NULL_VALUE;
+        NULL_VALUE, WRONG_TYPES, ADDITION_NOT_POSSIBLE;
     }
 
     MyException type;
 
-    QuantityMeasurementException(MyException type, String message) {
+    public QuantityMeasurementException(MyException type, String message) {
         super(message);
         this.type = type;
     }
